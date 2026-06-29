@@ -1,7 +1,11 @@
 import os
 import cv2
 import numpy as np
+
+os.environ["YOLO_VERBOSE"] = 'False'
+
 from ultralytics import YOLO
+
 from typing import List, Dict, Union, Tuple, Optional
 
 class AnemoScanROIDetector:
