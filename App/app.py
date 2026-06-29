@@ -1,5 +1,12 @@
 import os
-import cv2
+
+try:
+    import cv2
+except Exception as e:
+    import streamlit as st
+    st.error(f'OpenCV failed to load:\n{e}')
+    st.stop()
+
 import sys
 import numpy as np
 from PIL import Image
@@ -55,7 +62,7 @@ def load_models():
 # Load YOLO detector (cached)
 @st.cache_resource
 def load_yolo():
-    return get_detector(model_path = '../models/best.pt', conf_threshold = 0.5)
+    return get_detector(model_path = os.path.join(MODEL_DIR, 'best.pt'), conf_threshold = 0.5)
 
 # Show loading spinner while models load for the first time
 with st.spinner('🔄 Loading AI models... This may take a few seconds.'):
