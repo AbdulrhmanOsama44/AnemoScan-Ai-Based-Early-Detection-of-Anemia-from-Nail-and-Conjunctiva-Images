@@ -49,7 +49,7 @@ st.markdown('### AI‑based Anemia Detection System')
 def load_models():
     conjunctiva_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_conjunctiva.h5'))
     nails_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_nails.h5'))
-    type_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'type_classifier.keras')
+    type_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'type_classifier.keras'))
     return conjunctiva_model, nails_model, type_model
 
 # Load YOLO detector (cached)
