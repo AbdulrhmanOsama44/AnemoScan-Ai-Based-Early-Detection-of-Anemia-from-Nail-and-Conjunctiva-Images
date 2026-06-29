@@ -39,17 +39,21 @@ st.title('🩺 AnemoScan')
 st.markdown('### AI‑based Anemia Detection System')
 
 # Load models (cached)
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, 'Models')
+
 @st.cache_resource
 def load_models():
-    conjunctiva_model = tf.keras.models.load_model('../models/best_initial_model_conjunctiva.h5')
-    nails_model = tf.keras.models.load_model('../models/best_initial_model_nails.h5')
-    type_model = tf.keras.models.load_model('../models/type_classifier_model.h5')
+    conjunctiva_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_conjunctiva.h5'))
+    nails_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_nails.h5'))
+    type_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'type_classifier_model.h5'))
     return conjunctiva_model, nails_model, type_model
 
 # Load YOLO detector (cached)
 @st.cache_resource
 def load_yolo():
-    return get_detector(model_path = '../models/best.pt', conf_threshold = 0.5)
+    return get_detector(model_path = os.path.join(MODEL_DIR, 'best.pt'), conf_threshold = 0.5)
 
 # Show loading spinner while models load for the first time
 with st.spinner('🔄 Loading AI models... This may take a few seconds.'):
