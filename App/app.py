@@ -7,6 +7,8 @@ import streamlit as st
 import tensorflow as tf
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_DIR = os.path.join(BASE_DIR, 'Models')
 
 # Import utilities
 from utils.pdf_generator import create_pdf
@@ -45,9 +47,9 @@ st.markdown('### AI‑based Anemia Detection System')
 # Load models (cached)
 @st.cache_resource
 def load_models():
-    conjunctiva_model = tf.keras.models.load_model('../models/best_initial_model_conjunctiva.h5')
-    nails_model = tf.keras.models.load_model('../models/best_initial_model_nails.h5')
-    type_model = tf.keras.models.load_model('../models/type_classifier_model.h5')
+    conjunctiva_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_conjunctiva.h5'))
+    nails_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_nails.h5'))
+    type_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'type_classifier.keras')
     return conjunctiva_model, nails_model, type_model
 
 # Load YOLO detector (cached)
