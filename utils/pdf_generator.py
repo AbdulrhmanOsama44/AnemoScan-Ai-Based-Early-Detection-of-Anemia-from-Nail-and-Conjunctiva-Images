@@ -73,7 +73,7 @@ def create_pdf(prediction, confidence, image_type, original_path, heatmap_path, 
     # Title and date
     content.append(Paragraph('AnemoScan Medical Report', title_style))
     content.append(Spacer(1, 0.1 * inch))
-    content.append(Paragraph(f'Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}', normal_style))
+    content.append(Paragraph(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}", normal_style))
     content.append(Spacer(1, 0.2 * inch))
     
     # Results Summary Table
