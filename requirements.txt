@@ -1,10 +1,10 @@
 # Core ML & Deep Learning
 tensorflow==2.13.0
 keras==2.13.1
-ultralytics==8.0.196
+ultralytics
 
 # Computer Vision
-opencv-python-headless==4.8.1.78
+opencv-python-headless
 Pillow==9.5.0
 
 # Data Science & Visualization
