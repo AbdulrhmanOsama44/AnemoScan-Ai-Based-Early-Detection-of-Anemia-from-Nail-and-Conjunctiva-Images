@@ -47,9 +47,9 @@ MODEL_DIR = os.path.join(BASE_DIR, 'Models')
 
 @st.cache_resource
 def load_models():
-    conjunctiva_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_conjunctiva.h5'))
-    nails_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_nails.h5'))
-    type_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'type_classifier_model.h5'))
+    conjunctiva_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_conjunctiva.keras'))
+    nails_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'best_initial_model_nails.keras'))
+    type_model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'type_classifier_model.keras'))
     return conjunctiva_model, nails_model, type_model
 
 # Load YOLO detector (cached)
