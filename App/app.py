@@ -20,7 +20,9 @@ st.set_page_config(page_title = 'AnemoScan', page_icon = '🩸', layout = 'wide'
 
 # Sidebar (disclaimers, info)
 with st.sidebar:
-    st.image('logo.png' if os.path.exists('logo.png') else None, width = 225)
+    logo_path = os.path.join(os.path.dirname(__file__), 'logo.png')
+    if os.path.exists(logo_path):
+        st.image(logo_path, width = 225)
     st.markdown('## Disclaimer ❗️')
     st.info(
         '- This system is not a medical diagnostic tool and is intended for educational purposes only.\n'
