@@ -1,5 +1,5 @@
 # Core ML & Deep Learning
-tensorflow==2.15.0
+tensorflow==2.18.0
 ultralytics==8.0.196
 
 # Computer Vision
